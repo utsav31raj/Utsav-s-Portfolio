@@ -5,17 +5,17 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   plugins: [react()],
   build: {
-    commonjsOptions: {
-      include: [/node_modules/],
-      transformMixedEsModules: true
-    },
+    target: 'es2015',
+    outDir: 'dist',
     rollupOptions: {
       output: {
         manualChunks: {
-          'react-vendor': ['react', 'react-dom'],
-          'typewriter': ['react-simple-typewriter']
+          vendor: ['react', 'react-dom', 'react-simple-typewriter', 'framer-motion', 'react-tilt']
         }
       }
     }
+  },
+  optimizeDeps: {
+    include: ['react-simple-typewriter']
   }
 });
