@@ -8,14 +8,7 @@ export default defineConfig({
     exclude: ['lucide-react'],
     include: ['react-simple-typewriter']
   },
-  build: {
-    rollupOptions: {
-      external: ['react-simple-typewriter'],
-      output: {
-        globals: {
-          'react-simple-typewriter': 'ReactSimpleTypewriter'
-        }
-      }
-    }
+  resolve: {
+    dedupe: ['react', 'react-dom', 'react-simple-typewriter']
   }
 });
